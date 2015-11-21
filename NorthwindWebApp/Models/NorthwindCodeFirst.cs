@@ -20,5 +20,7 @@ namespace NorthwindWebApp.Models
                 .Property(e => e.TerritoryDescription)
                 .IsFixedLength();
         }
+
+        public System.Data.Entity.DbSet<NorthwindWebApp.Models.Region> Regions { get; set; }
     }
 }
