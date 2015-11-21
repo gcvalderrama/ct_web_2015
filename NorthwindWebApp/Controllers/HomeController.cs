@@ -10,6 +10,7 @@ namespace NorthwindWebApp.Controllers
     {
         public ActionResult Index()
         {
+           
             return View();
         }
 
@@ -24,7 +25,9 @@ namespace NorthwindWebApp.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
-            return View();
+            var context = new NorthwindWebApp.Models.NorthwindEntities();
+            var customers = context.Customers.ToList();
+            return View(customers);
         }
     }
 }
