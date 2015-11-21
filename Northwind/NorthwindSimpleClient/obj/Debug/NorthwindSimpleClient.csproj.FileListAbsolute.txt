@@ -1,0 +1,9 @@
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\bin\Debug\NorthwindSimpleClient.exe.config
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\bin\Debug\NorthwindSimpleClient.exe
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\bin\Debug\NorthwindSimpleClient.pdb
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\bin\Debug\EntityFramework.dll
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\bin\Debug\EntityFramework.xml
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\obj\Debug\NorthwindSimpleClient.exe
+C:\GitHub\ct_web_2015\Northwind\NorthwindSimpleClient\obj\Debug\NorthwindSimpleClient.pdb
