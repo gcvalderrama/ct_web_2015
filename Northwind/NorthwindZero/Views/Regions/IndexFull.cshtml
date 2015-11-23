@@ -1,0 +1,37 @@
+﻿@model IEnumerable<NorthwindZero.Models.Region>
+
+@{
+    ViewBag.Title = "IndexFull";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IndexFull</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegionDescription)
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.RegionDescription, "Detail",
+               new { id =  item.RegionDescription }
+             )
+        
+        </td>
+      
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Create",  "Create")
+</div>

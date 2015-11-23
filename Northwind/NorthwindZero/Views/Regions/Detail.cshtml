@@ -1,0 +1,48 @@
+﻿@model NorthwindZero.Models.Region
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Region</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionDescription)
+        </dd>
+
+    </dl>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    Territorio
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model.Territories)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TerritoryDescription)
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div style="background-color:aqua">
+        @Html.ActionLink("Back", "Index")
+    </div>
+</div>
+
