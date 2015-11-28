@@ -1,0 +1,50 @@
+﻿@model IEnumerable<NorthwindLab03.Models.Categories>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@if (!String.IsNullOrWhiteSpace((String)@ViewBag.TraceMessage))
+{
+    <div>
+        @Html.TextArea("Trace", (String)@ViewBag.TraceMessage, new { cols="100", rows="20"  })
+    </div>
+}
+
