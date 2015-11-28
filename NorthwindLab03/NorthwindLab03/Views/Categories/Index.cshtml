@@ -10,6 +10,20 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<form action="Index" method="post" >
+        <div class="row">
+        <div class="col-md-2">
+            Contains
+        </div>
+        <div class="col-md-2">
+            <input type="text" name="filter" value="@ViewBag.Filter" width="30em" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit">Filter</button>
+        </div>
+        </div>
+</form>
+
 <table class="table">
     <tr>
         <th>

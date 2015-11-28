@@ -39,6 +39,17 @@ namespace NorthwindLab03.Controllers
             ViewBag.TraceMessage = Trace.ToString(); 
             return View(result);
         }
+        [HttpPost]
+        public ActionResult Index(string filter)
+        {
+            var query = from c in this.Contexto.Categories
+                        where c.CategoryName.Contains(filter)
+                        select c;
+
+            this.ViewBag.Filter = filter;
+
+            return View(query);
+        }
         public ActionResult Details(int id)
         {
             var query = (from c in this.Contexto.Categories
@@ -114,7 +125,43 @@ namespace NorthwindLab03.Controllers
             return this.RedirectToAction("Index");
         }
 
+        public ActionResult Edit(int id)
+        {
+            var category = this.Contexto.Categories.Find(id);
+            if (category == null)
+            {
+                return this.HttpNotFound(); 
+            }
+            return this.View(category); 
+        }
+        [HttpPost]        
+        public ActionResult  Edit(int id, Categories Model)
+        {
+            var category = this.Contexto.Categories.Find(id);
+            if( category == null)
+                return this.HttpNotFound(); 
 
+            if(!this.ModelState.IsValid)
+            {
+                return this.View(Model);
+            }                       
+            
+            if (!this.TryUpdateModel(category, 
+                new string[]{ "CategoryName", "Description" }))
+            {
+                return this.View(Model);
+            }
+            try
+            {
+                this.Contexto.SaveChanges();
+                return this.RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {                
+                this.ModelState.AddModelError("", ex);
+                return this.View(Model);           
+            }
+        }
 
     }
 }
