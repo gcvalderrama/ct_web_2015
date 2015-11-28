@@ -84,6 +84,37 @@ namespace NorthwindLab03.Controllers
             
         }
 
+        public ActionResult Delete(int id)
+        {
+            var  category =  this.Contexto.Categories.Find(id);
+            if (category == null)
+                return this.HttpNotFound();
+
+            return this.View(category);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult PostDelete(int id)
+        {
+            var category = this.Contexto.Categories.Find(id);
+            if (category != null)
+            {
+                try
+                {
+                    this.Contexto.Categories.Remove(category);
+                    this.Contexto.SaveChanges(); 
+                }
+                catch (Exception ex)
+                {
+                    this.ModelState.AddModelError("", ex);
+                    return this.View(category);                    
+                }               
+            }
+            return this.RedirectToAction("Index");
+        }
+
+
 
     }
 }
