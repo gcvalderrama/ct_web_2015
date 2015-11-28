@@ -11,10 +11,11 @@ namespace NorthwindLab03.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Categories
     {
-        public int CategoryID { get; set; }
+        public int CategoryID { get; set; }        
         public string CategoryName { get; set; }
         public string Description { get; set; }
     }
