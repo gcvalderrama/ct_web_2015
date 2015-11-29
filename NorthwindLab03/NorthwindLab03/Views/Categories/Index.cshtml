@@ -1,4 +1,5 @@
-﻿@model IEnumerable<NorthwindLab03.Models.Categories>
+﻿@using NorthwindLab03.Helpers
+@model IEnumerable<NorthwindLab03.Models.Categories>
 
 @{
     
@@ -18,14 +19,13 @@
         </div>
         <div class="col-md-2">
             <input type="text" name="filter" value="@ViewBag.Filter" width="30em" />
+            @Html.Hidden("txtOculto")
         </div>
         <div class="col-md-2">
             <button type="submit">Filter</button>
         </div>
     </div>
 }
-
-
 <table class="table">
     <tr>
         <th>
@@ -56,11 +56,5 @@
 
 </table>
 
-
-@if (!String.IsNullOrWhiteSpace((String)@ViewBag.TraceMessage))
-{
-    <div>
-        @Html.TextArea("Trace", (String)@ViewBag.TraceMessage, new { cols="100", rows="20"  })
-    </div>
-}
+@Html.RenderTrace((String)@ViewBag.TraceMessage)
 

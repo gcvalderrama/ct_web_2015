@@ -1,4 +1,5 @@
-﻿using NorthwindLab03.Models;
+﻿using NorthwindLab03.Filters;
+using NorthwindLab03.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,28 +9,33 @@ using System.Web.Mvc;
 
 namespace NorthwindLab03.Controllers
 {
-    public class CategoriesController : Controller
+    public class CategoriesController : Controller, 
+        IEntityFrameworkControllerInterface
     {
 
-        private Models.NorthwindEntities Contexto =
-            new Models.NorthwindEntities();
+        public CategoriesController()
+        {
+            this.Contexto = new NorthwindEntities(); 
+        }
+
+        public Models.NorthwindEntities Contexto
+        {
+            get;
+            set; 
+        }
 
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
             this.Contexto.Dispose(); 
         }
-        private StringBuilder Trace = new StringBuilder(); 
-        // GET: Categories
-        private void makeTrace(string message)
-        {
-            Trace.AppendLine(message);            
-        }
+     
 
 
         //[OutputCache(Duration=60,
         //     VaryByHeader="", VaryByParam="", 
         //     Location= System.Web.UI.OutputCacheLocation.Client )]
+        [EntityFrameworkLogFilter]
         public ActionResult Index()
         {
             
@@ -40,7 +46,7 @@ namespace NorthwindLab03.Controllers
 
             ViewBag.Title = Resources.Titles.Index + " " + DateTime.Now.ToShortDateString() ;
 
-            this.Contexto.Database.Log += makeTrace; 
+           
                         
 
             var query = from c in this.Contexto.Categories
@@ -48,26 +54,21 @@ namespace NorthwindLab03.Controllers
 
             var result = query.ToList();
 
-            this.Contexto.Database.Log -= makeTrace;
-
-            ViewBag.TraceMessage = Trace.ToString(); 
+    
+            
             return View(result);
         }
         [HttpPost]
         [OutputCache(CacheProfile="tinyCache",
             VaryByParam = "filter")]
-        public ActionResult Index(string filter)
-        {
-            this.Contexto.Database.Log += makeTrace; 
+        [EntityFrameworkLogFilter]
+        public ActionResult Index(string filter, string txtOculto)
+        {           
 
             var query = (from c in this.Contexto.Categories
                         where c.CategoryName.Contains(filter)
                         select c).ToList();
-
-            this.Contexto.Database.Log -= makeTrace;
-
-            this.ViewBag.Filter = filter;
-            ViewBag.TraceMessage = Trace.ToString(); 
+            this.ViewBag.Filter = filter;            
             return View(query);
 
         }
