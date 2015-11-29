@@ -1,17 +1,18 @@
 ﻿@model IEnumerable<NorthwindLab03.Models.Categories>
 
 @{
-    ViewBag.Title = "Index";
+    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<form action="Index" method="post" >
-        <div class="row">
+@using (Html.BeginForm("Index", "Categories", FormMethod.Post))
+{
+    <div class="row">
         <div class="col-md-2">
             Contains
         </div>
@@ -21,8 +22,9 @@
         <div class="col-md-2">
             <button type="submit">Filter</button>
         </div>
-        </div>
-</form>
+    </div>
+}
+
 
 <table class="table">
     <tr>

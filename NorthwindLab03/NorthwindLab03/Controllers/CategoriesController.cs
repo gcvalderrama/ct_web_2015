@@ -25,9 +25,23 @@ namespace NorthwindLab03.Controllers
         {
             Trace.AppendLine(message);            
         }
+
+
+        //[OutputCache(Duration=60,
+        //     VaryByHeader="", VaryByParam="", 
+        //     Location= System.Web.UI.OutputCacheLocation.Client )]
         public ActionResult Index()
         {
+            DateTime.UtcNow
+
+            //System.Threading.Thread.CurrentThread.CurrentUICulture
+            //System.Threading.Thread.CurrentThread.CurrentCulture
+            //System.Threading.Thread.CurrentPrincipal.Identity
+
+            ViewBag.Title = Resources.Titles.Index + " " + DateTime.Now.ToShortDateString() ;
+
             this.Contexto.Database.Log += makeTrace; 
+                        
 
             var query = from c in this.Contexto.Categories
                         select c;
@@ -40,15 +54,22 @@ namespace NorthwindLab03.Controllers
             return View(result);
         }
         [HttpPost]
+        [OutputCache(CacheProfile="tinyCache",
+            VaryByParam = "filter")]
         public ActionResult Index(string filter)
         {
-            var query = from c in this.Contexto.Categories
+            this.Contexto.Database.Log += makeTrace; 
+
+            var query = (from c in this.Contexto.Categories
                         where c.CategoryName.Contains(filter)
-                        select c;
+                        select c).ToList();
+
+            this.Contexto.Database.Log -= makeTrace;
 
             this.ViewBag.Filter = filter;
-
+            ViewBag.TraceMessage = Trace.ToString(); 
             return View(query);
+
         }
         public ActionResult Details(int id)
         {
@@ -60,6 +81,14 @@ namespace NorthwindLab03.Controllers
             return this.View(query); 
         }
 
+        private void OnSaveContext()
+        {
+            this.Contexto.SaveChanges(); 
+
+            string index = Url.Action("Index");
+            this.Response.RemoveOutputCacheItem(index);
+
+        }
 
         public ActionResult Create()
         {
@@ -84,7 +113,7 @@ namespace NorthwindLab03.Controllers
             try
             {
                 this.Contexto.Categories.Add(Model);
-                this.Contexto.SaveChanges();
+                OnSaveContext();     
                 return this.RedirectToAction("Index");
             }
             catch (Exception ex)
