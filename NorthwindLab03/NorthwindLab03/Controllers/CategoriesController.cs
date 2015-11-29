@@ -32,7 +32,7 @@ namespace NorthwindLab03.Controllers
         //     Location= System.Web.UI.OutputCacheLocation.Client )]
         public ActionResult Index()
         {
-            DateTime.UtcNow
+            
 
             //System.Threading.Thread.CurrentThread.CurrentUICulture
             //System.Threading.Thread.CurrentThread.CurrentCulture
