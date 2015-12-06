@@ -1,0 +1,78 @@
+﻿@model Entidades.EFCF.Product
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ProductNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.MakeFlag)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.FinishedGoodsFlag)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Color)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.SafetyStockLevel)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ReorderPoint)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.StandardCost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ListPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Size)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Weight)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.DaysToManufacture)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ProductLine)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Class)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Style)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.SellStartDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.SellEndDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.DiscontinuedDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ModifiedDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ProductModel.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.ProductSubcategory.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.SizeUnitMeasure.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.WeightUnitMeasure.Name)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID })
+        @Html.ActionLink("Details", "Details", new { id = Model.ProductID, name = Model.Name })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ProductID })
+    </td>
+</tr>

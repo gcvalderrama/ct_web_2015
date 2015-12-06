@@ -1,0 +1,18 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+<h3>Mensaje de Error: @ViewBag.ErrorDescription</h3>
+<h3>- Controller: @ViewData["Controller"]</h3>
+<h3>- Action: @ViewData["Action"]</h3>
+
+<h2>Otra forma de mostrar los valores del controller y el action.</h2>
+<br />
+- Controller: @ViewContext.RouteData.Values["Controller"]
+<br />
+- Action: @ViewContext.RouteData.Values["Action"]
