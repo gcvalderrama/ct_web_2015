@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,12 @@ namespace DemoSeguridad
         static void Main(string[] args)
         {
             AppDomain.CurrentDomain.SetPrincipalPolicy(
-                System.Security.Principal.PrincipalPolicy.WindowsPrincipal);
+                System.Security.Principal.PrincipalPolicy.UnauthenticatedPrincipal);
+
+            GenericIdentity Identity = new GenericIdentity("SuperUsuario");
+            GenericPrincipal Principal = new GenericPrincipal(Identity, new string[] { "Administradores"});
+
+            System.Threading.Thread.CurrentPrincipal = Principal;
 
             var seg = 
                 System.Security.Principal.WindowsIdentity.GetCurrent().Name;
