@@ -11,6 +11,8 @@ namespace DemoSeguridad
     {
         static void Main(string[] args)
         {
+            //ha ha show mvc security
+        // https://channel9.msdn.com/Events/MIX/MIX10/FT05
             AppDomain.CurrentDomain.SetPrincipalPolicy(
                 System.Security.Principal.PrincipalPolicy.UnauthenticatedPrincipal);
 
