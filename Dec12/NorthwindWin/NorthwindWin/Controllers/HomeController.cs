@@ -21,7 +21,7 @@ namespace NorthwindWin.Controllers
 
             return View();
         }
-        [Authorize]
+        [Authorize(Roles="Managers")]
         public ActionResult Contact()
         {
 
@@ -34,6 +34,8 @@ namespace NorthwindWin.Controllers
             visitas += 1;
             this.Response.Cookies.Add(
                     new HttpCookie("visitas", visitas.ToString()));
+
+            
 
             //if (Session["Visitas"] == null)
             //    Session["Visitas"] = 0;

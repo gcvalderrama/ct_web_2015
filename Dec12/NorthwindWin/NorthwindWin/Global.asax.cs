@@ -33,7 +33,21 @@ namespace NorthwindWin
             //    HttpContext.Current.User = principal;
             //}            
         }
-        
+        protected void Application_AuthorizeRequest()
+        {
+            if (this.User.Identity.IsAuthenticated)
+            { 
+                //
+                if(this.User.Identity.Name == "maria" )
+                {
+                    GenericIdentity identity = new GenericIdentity(this.User.Identity.Name);
+                    GenericPrincipal principal = new GenericPrincipal(identity, new string[] {"Managers" });
+                    Thread.CurrentPrincipal = principal;
+                    HttpContext.Current.User = principal;
+                }
+            }
+        }
+
        
         protected void Application_BeginRequest()
         {

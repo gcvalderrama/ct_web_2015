@@ -16,3 +16,11 @@
 <h3>
     @ViewBag.Visitas
 </h3>
+
+<h3>
+    @{
+        var message = this.User.IsInRole("Managers") ? "Welcome manager" : "welcome user";
+    }
+    @message
+    
+</h3>
