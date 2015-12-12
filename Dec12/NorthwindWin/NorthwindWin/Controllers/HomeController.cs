@@ -21,9 +21,10 @@ namespace NorthwindWin.Controllers
 
             return View();
         }
-
+        [Authorize]
         public ActionResult Contact()
         {
+
             int visitas = 0; 
             if ( this.Request.Cookies["visitas"] != null)
             {
@@ -41,8 +42,8 @@ namespace NorthwindWin.Controllers
             //Session["Visitas"] = visitas + 1;
                             
             ViewBag.ProcessUser = WindowsIdentity.GetCurrent().Name;
-            ViewBag.ApplicationUser =  
-                this.User.Identity.IsAuthenticated? this.User.Identity.Name : "Anonymous" ;
+            ViewBag.ApplicationUser =
+                Thread.CurrentPrincipal.Identity.IsAuthenticated ? Thread.CurrentPrincipal.Identity.Name : "Anonymous";
             ViewBag.Visitas = visitas; 
             //Thread.CurrentPrincipal.Identity.Name
 
