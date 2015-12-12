@@ -24,11 +24,21 @@ namespace NorthwindWin.Controllers
 
         public ActionResult Contact()
         {
-            if (Session["Visitas"] == null)
-                Session["Visitas"] = 0;
+            int visitas = 0; 
+            if ( this.Request.Cookies["visitas"] != null)
+            {
+                visitas = int.Parse(this.Request.Cookies["visitas"].Value);
+                
+            }
+            visitas += 1;
+            this.Response.Cookies.Add(
+                    new HttpCookie("visitas", visitas.ToString()));
 
-            int visitas = (int)Session["Visitas"];
-            Session["Visitas"] = visitas + 1;
+            //if (Session["Visitas"] == null)
+            //    Session["Visitas"] = 0;
+
+            //int visitas = (int)Session["Visitas"];
+            //Session["Visitas"] = visitas + 1;
                             
             ViewBag.ProcessUser = WindowsIdentity.GetCurrent().Name;
             ViewBag.ApplicationUser =  
