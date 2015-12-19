@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.DAC", "Movies.DAC\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Entities", "Movies.Entities\Movies.Entities.csproj", "{E0C50F80-1BE5-4A14-8464-CB432C260593}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesSite", "MoviesSite\MoviesSite.csproj", "{EC724472-1264-4799-A51F-B5E360746AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.BL", "Movies.BL\Movies.BL.csproj", "{CDD0536D-C53F-44D3-B745-013BF4D3A6D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E0C50F80-1BE5-4A14-8464-CB432C260593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0C50F80-1BE5-4A14-8464-CB432C260593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0C50F80-1BE5-4A14-8464-CB432C260593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC724472-1264-4799-A51F-B5E360746AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC724472-1264-4799-A51F-B5E360746AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC724472-1264-4799-A51F-B5E360746AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC724472-1264-4799-A51F-B5E360746AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDD0536D-C53F-44D3-B745-013BF4D3A6D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD0536D-C53F-44D3-B745-013BF4D3A6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD0536D-C53F-44D3-B745-013BF4D3A6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD0536D-C53F-44D3-B745-013BF4D3A6D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

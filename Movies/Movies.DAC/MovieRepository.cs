@@ -15,6 +15,8 @@ namespace Movies.DAC
         {
             this.ConnectionString = ConfigurationManager.ConnectionStrings["Movies"].ConnectionString;
         }
+
+        
         public IEnumerable<Entities.Movie> GetAll()
         {
             IEnumerable<Entities.Movie> result = new List<Entities.Movie>(); 
@@ -48,6 +50,15 @@ namespace Movies.DAC
                 result = (int)cmd.ExecuteScalar();                
             }
             return result; 
+        }
+
+
+        public void Create(Entities.Movie Model)
+        {
+            var context = new MoviesDbContext();
+            context.Movies.Add(Model);
+            context.SaveChanges(); 
+             
         }
     }
 }

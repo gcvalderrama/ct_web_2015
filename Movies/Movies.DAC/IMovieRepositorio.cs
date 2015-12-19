@@ -11,6 +11,7 @@ namespace Movies.DAC
     {
         IEnumerable<Movie> GetAll();
         Movie GetOne(int Id);
+        void Create(Movie Model);
         int Count(); 
     }
 }
