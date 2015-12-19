@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.DAC", "Movies.DAC\Movies.DAC.csproj", "{D9DE20E8-D1F3-41B6-8462-A13699AC8D69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Entities", "Movies.Entities\Movies.Entities.csproj", "{E0C50F80-1BE5-4A14-8464-CB432C260593}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D9DE20E8-D1F3-41B6-8462-A13699AC8D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9DE20E8-D1F3-41B6-8462-A13699AC8D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9DE20E8-D1F3-41B6-8462-A13699AC8D69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C50F80-1BE5-4A14-8464-CB432C260593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C50F80-1BE5-4A14-8464-CB432C260593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C50F80-1BE5-4A14-8464-CB432C260593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C50F80-1BE5-4A14-8464-CB432C260593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
