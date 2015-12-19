@@ -29,12 +29,19 @@ namespace Movies.DAC
         public Entities.Movie GetOne(int Id)
         {
             Entities.Movie result = null;
-            using (var con = new SqlConnection(this.ConnectionString))
-            {
-                result = con.Query<Entities.Movie>("usp_movies_get_one", 
-                    new {Id = Id },
-                    commandType: System.Data.CommandType.StoredProcedure).FirstOrDefault();
-            }
+
+            var context = new MoviesDbContext();
+            
+            result = (from c in context.Movies.Include("Reviews")
+                        where c.Id == Id
+                        select c).FirstOrDefault(); 
+            
+            //using (var con = new SqlConnection(this.ConnectionString))
+            //{
+            //    result = con.Query<Entities.Movie>("usp_movies_get_one", 
+            //        new {Id = Id },
+            //        commandType: System.Data.CommandType.StoredProcedure).FirstOrDefault();
+            //}
             return result;                 
         }
 
@@ -57,8 +64,16 @@ namespace Movies.DAC
         {
             var context = new MoviesDbContext();
             context.Movies.Add(Model);
-            context.SaveChanges(); 
-             
+            context.SaveChanges();              
+        }
+
+
+
+        public void CreateReview(Entities.Review Model)
+        {
+            var context = new MoviesDbContext();
+            context.Reviews.Add(Model);
+            context.SaveChanges();              
         }
     }
 }

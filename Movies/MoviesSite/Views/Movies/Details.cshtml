@@ -1,0 +1,71 @@
+﻿@model Movies.Entities.Movie
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <p>
+        @Html.ActionLink("Create New Review", "Create", new { controller= "Reviews",  Movie = Model.Id })
+    </p>
+</div>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Comment
+            </th>
+            <th>
+                Score
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Reviews)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditReview", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "DetailsReview", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteReview", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
