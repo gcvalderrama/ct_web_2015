@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>MoviesSite</id>
+    <version>version</version>
+    <authors>Net-Sab</authors>
+    <owners>Net-Sab</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Movie Site</description>
+    <releaseNotes>No release notes</releaseNotes>
+    <copyright>Copyright 2015</copyright>        
+  </metadata>
+</package>

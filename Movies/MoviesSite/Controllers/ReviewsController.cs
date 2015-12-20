@@ -39,7 +39,7 @@ namespace MoviesSite.Controllers
 
 
                 Session["MovieId"] = null; 
-
+                
                 return this.RedirectToAction("Details", "Movies", new { id = Model.MovieId });
             }
             else
