@@ -144,6 +144,6 @@ $xml.Save($nuget_path)
 
 cd ".\Build"
 
-& nuget pack 
-#& choco pack app.nuspec --version=$version
+& choco pack app.nuspec --version=$version
+
 cd $current
