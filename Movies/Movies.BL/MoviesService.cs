@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Movies.DAC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,14 @@ namespace Movies.BL
 {
     public class MoviesService :  IMoviesService
     {
-        private DAC.IMovieRepositorio MovieRepositorio = new DAC.MovieRepository();
+        private DAC.IMovieRepositorio MovieRepositorio;
+
+        public MoviesService(IMovieRepositorio MovieRepositorio)
+        {
+            this.MovieRepositorio = MovieRepositorio; 
+        }
+
+        
         public IEnumerable<Entities.Movie> GetAll()
         {
             return this.MovieRepositorio.GetAll();              

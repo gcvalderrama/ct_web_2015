@@ -1,4 +1,5 @@
-﻿using Movies.Entities;
+﻿using Movies.BL;
+using Movies.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,13 @@ namespace MoviesSite.Controllers
     [Authorize]
     public class MoviesController : Controller
     {
-        private Movies.BL.IMoviesService MoviesService = new Movies.BL.MoviesService(); 
+        private Movies.BL.IMoviesService MoviesService; 
+
+        public MoviesController(IMoviesService MoviesService)
+        {
+            this.MoviesService = MoviesService; 
+        }
+
         // GET: Movies
         public ActionResult Index()
         {

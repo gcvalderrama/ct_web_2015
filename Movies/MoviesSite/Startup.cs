@@ -10,5 +10,6 @@ namespace MoviesSite
         {
             ConfigureAuth(app);
         }
+        
     }
 }
