@@ -77,6 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GrammarService.cs" />
+    <Compile Include="IGrammarService.cs" />
     <Compile Include="IMovieRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>

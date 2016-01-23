@@ -32,8 +32,7 @@ namespace MoviesSite.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(int Movie, ReviewVM Model)
-        {
-            
+        {   
             //[Bind(Include="Comment,Score")]
             if (this.ModelState.IsValid)
             {
@@ -41,6 +40,7 @@ namespace MoviesSite.Controllers
                 Model.MovieId = (int)Session["MovieId"];
 
                 var input = AutoMapper.Mapper.Map<Review>(Model);
+
                 this.MoviesService.CreateReview(input);
 
 

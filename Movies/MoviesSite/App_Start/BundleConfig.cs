@@ -11,6 +11,11 @@ namespace MoviesSite
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+
+            bundles.Add(new ScriptBundle("~/bundles/movies")
+                .Include("~/Scripts/Movies.js"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
