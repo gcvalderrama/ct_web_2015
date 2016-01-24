@@ -33,6 +33,7 @@ namespace MoviesSite.App_Start
         {
             container.RegisterType<IMoviesService, MoviesService>();
             container.RegisterType<IMovieRepositorio, MovieRepository>();
+            container.RegisterType<IGrammarService, GrammarService>();
             //container.RegisterType<IMovieRepositorio, MockMoviesRepository>();
             
         }

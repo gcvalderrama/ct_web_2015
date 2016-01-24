@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{A7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.BL.UnitTest", "Movies.BL.UnitTest\Movies.BL.UnitTest.csproj", "{0AA72363-9B19-4951-8DD7-22FF0DD2C889}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.BL.MSUnitTest", "Movies.BL.MSUnitTest\Movies.BL.MSUnitTest.csproj", "{7AAE4D91-640D-4232-87AE-2A0601D56054}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Acceptance|Any CPU = Acceptance|Any CPU
@@ -79,11 +81,22 @@ Global
 		{0AA72363-9B19-4951-8DD7-22FF0DD2C889}.Production|Any CPU.Build.0 = Release|Any CPU
 		{0AA72363-9B19-4951-8DD7-22FF0DD2C889}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AA72363-9B19-4951-8DD7-22FF0DD2C889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Acceptance|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Acceptance|Any CPU.Build.0 = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Automated|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Automated|Any CPU.Build.0 = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Production|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Production|Any CPU.Build.0 = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0AA72363-9B19-4951-8DD7-22FF0DD2C889} = {A733DA66-992E-494D-A8CC-534595511A8A}
+		{7AAE4D91-640D-4232-87AE-2A0601D56054} = {A733DA66-992E-494D-A8CC-534595511A8A}
 	EndGlobalSection
 EndGlobal
