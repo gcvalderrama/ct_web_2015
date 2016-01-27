@@ -31,6 +31,8 @@ namespace MoviesSite.App_Start
         
         public static void RegisterTypes(IUnityContainer container)
         {
+            
+
             container.RegisterType<IMoviesService, MoviesService>();
             container.RegisterType<IMovieRepositorio, MovieRepository>();
             container.RegisterType<IGrammarService, GrammarService>();
