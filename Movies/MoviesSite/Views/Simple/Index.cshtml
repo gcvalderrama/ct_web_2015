@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("navegar", "Index2", new  { mensaje = "original" })
+
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("FirstName")
+    <button type="submit"> Submit </button>
+}
+
+
+<h2> Session Client data  </h2>
+
+<input type="text" id="LastName" />
+
+<button type="button" id="btnNavegar">Navegar</button>
+
+@section Scripts {
+    <script>
+        $(document).on("ready", function () {
+
+            $("#btnNavegar").on("click", function () {
+
+                var lastname = $("#LastName").val();
+
+                sessionStorage.setItem("LastName", lastname);
+
+                window.location = "/Simple/Index5";
+
+            });
+
+        });
+    </script>
+}
+
+
+

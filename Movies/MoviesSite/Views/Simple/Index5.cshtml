@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index5</h2>
+
+<h1 id="lblLastname"></h1>
+
+@section Scripts {
+    <script>
+        $(document).on("ready", function () {
+            var last = sessionStorage.getItem("LastName");
+            
+            $("#lblLastname").text(last)
+        });
+    </script>    
+}
+
+

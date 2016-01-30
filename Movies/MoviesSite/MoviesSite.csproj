@@ -193,6 +193,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\SimpleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -323,6 +324,12 @@
     <Content Include="Views\Movies\Create.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Movies\MoviesList.cshtml" />
+    <Content Include="Views\Simple\Index.cshtml" />
+    <Content Include="Views\Simple\Index2.cshtml" />
+    <Content Include="Views\Simple\Index3.cshtml" />
+    <Content Include="Views\Simple\Index4.cshtml" />
+    <Content Include="Views\Simple\Index5.cshtml" />
     <None Include="Web.Acceptance.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -352,6 +359,10 @@
     <ProjectReference Include="..\Movies.Entities\Movies.Entities.csproj">
       <Project>{e0c50f80-1be5-4a14-8464-cb432c260593}</Project>
       <Name>Movies.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoviesInc.WebHelpers\MoviesInc.WebHelpers.csproj">
+      <Project>{65f23b2d-78f5-4a94-a1f8-69194cc6e17c}</Project>
+      <Name>MoviesInc.WebHelpers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

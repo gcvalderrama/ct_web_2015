@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.BL.UnitTest", "Movie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.BL.MSUnitTest", "Movies.BL.MSUnitTest\Movies.BL.MSUnitTest.csproj", "{7AAE4D91-640D-4232-87AE-2A0601D56054}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesInc.WebHelpers", "MoviesInc.WebHelpers\MoviesInc.WebHelpers.csproj", "{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Acceptance|Any CPU = Acceptance|Any CPU
@@ -91,6 +93,16 @@ Global
 		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Production|Any CPU.Build.0 = Release|Any CPU
 		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AAE4D91-640D-4232-87AE-2A0601D56054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Acceptance|Any CPU.ActiveCfg = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Acceptance|Any CPU.Build.0 = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Automated|Any CPU.ActiveCfg = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Automated|Any CPU.Build.0 = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Production|Any CPU.ActiveCfg = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Production|Any CPU.Build.0 = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F23B2D-78F5-4A94-A1F8-69194CC6E17C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
