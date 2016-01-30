@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="../Content/kendo.common.min.css" rel="stylesheet" />
+    <link href="../Content/kendo.default.min.css" rel="stylesheet" />
+    <link href="../Content/kendo.blueopal.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-2.2.0.min.js"></script>
+    <script src="../Scripts/kendo.all.min.js"></script>
+    <style>
+        .top-buffer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-md-offset-3">
+                <h1>
+                    Detail Movie
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group">
+                        <label for="txtTitle">Title</label>
+                        <input type="text" class="form-control" id="txtTitle" placeholder="Title" readonly="readonly">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDesctiption">Description</label>
+                        <input type="text" class="form-control" id="txtDescription" placeholder="Title" readonly="readonly">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" id="btnChangeMovie">Change</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="window" style="visibility:hidden">
+
+    </div>
+
+    <div id="titleModal" style="visibility:hidden;">
+        
+        <form>
+            <div class="form-group">
+                <label for="txtTitleModalA">Title</label>
+                <input type="text" class="form-control" style="width:240px;" id="txtTitleModalA" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <button type="button" id="btnTxtTitleButton">Next</button>
+            </div>
+        </form>           
+            
+
+
+    </div>
+
+    <script>
+        function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+        }
+        String.format = function () {
+            var s = arguments[0];
+            for (var i = 0; i < arguments.length - 1; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                s = s.replace(reg, arguments[i + 1]);
+            }
+
+            return s;
+        }
+
+        function Presenter(id, txtTitle, txtDescription) {
+            var that = this;
+            that.Refresh = function () {
+                var defer = $.post(String.format("/movies/details/{0}", id));
+                defer.success(function (data) {
+
+                    txtTitle.val(data.title);
+                    txtDescription.val(data.description);
+                });
+            };
+            return that;
+        }
+
+        $(document).on("ready", function () {
+
+            var id = getURLParameter('id');
+            var presenter = new Presenter(id, $("#txtTitle"), $("#txtDescription"));
+
+            presenter.Refresh();
+
+            $("#window").kendoWindow({
+                width: "600px",
+                height: "600px",
+                title: "About Alvar Aalto",
+                visible: false,
+                modal: true,
+                actions: [                    
+                    "Close"
+                ]
+            }).data("kendoWindow").center();
+
+
+            $("#btnChangeMovie").on("click", function () {
+
+                var content_processa = $("#titleModal");
+                content_processa.css('visibility', 'visible');
+                var internal_winwow = $("#window").data("kendoWindow");
+                internal_winwow.content(content_processa);
+                internal_winwow.open();
+
+                $()
+            });
+
+
+        });
+
+    </script>
+</body>
+
+</html>

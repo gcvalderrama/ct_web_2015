@@ -13,7 +13,8 @@ namespace Movies.DAC
         Movie GetOne(int Id);
         void Create(Movie Model);
         void CreateReview(Review Model); 
-        int Count(); 
+        int Count();
+        IList<Movie> Search(string Filter);
 
         
     }

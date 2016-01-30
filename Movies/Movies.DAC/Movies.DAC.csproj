@@ -82,7 +82,6 @@
     <Compile Include="IMovieRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MockMoviesRepository.cs" />
     <Compile Include="MovieRepository.cs" />
     <Compile Include="MoviesDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

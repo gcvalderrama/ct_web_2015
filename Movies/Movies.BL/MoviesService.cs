@@ -1,4 +1,5 @@
 ﻿using Movies.DAC;
+using Movies.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,13 @@ namespace Movies.BL
             return this.MovieRepositorio.GetOne(Id);
         }
 
-        
+        public IList<Movie> SearchMovies(string Filter)
+        {
+            var result = this.MovieRepositorio.Search(Filter);
+
+
+            return result; 
+        }
         public void CreateReview(Entities.Review Model)
         {
             var words = this.GrammarService.GetBadWords(); 

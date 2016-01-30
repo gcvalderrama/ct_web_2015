@@ -200,14 +200,50 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ReviewVM.cs" />
+    <Compile Include="Modules\SuppressFormsAuthenticationRedirectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\SearchApp.js" />
+    <Content Include="app\controllers\SearchController.js" />
+    <Content Include="app\Index.html" />
+    <Content Include="app\views\search.html" />
+    <Content Include="Content\BlueOpal\editor.png" />
+    <Content Include="Content\BlueOpal\imagebrowser.png" />
+    <Content Include="Content\BlueOpal\indeterminate.gif" />
+    <Content Include="Content\BlueOpal\loading-image.gif" />
+    <Content Include="Content\BlueOpal\loading.gif" />
+    <Content Include="Content\BlueOpal\loading_2x.gif" />
+    <Content Include="Content\BlueOpal\markers.png" />
+    <Content Include="Content\BlueOpal\markers_2x.png" />
+    <Content Include="Content\BlueOpal\slider-h.gif" />
+    <Content Include="Content\BlueOpal\slider-v.gif" />
+    <Content Include="Content\BlueOpal\sprite.png" />
+    <Content Include="Content\BlueOpal\sprite_2x.png" />
+    <Content Include="Content\BlueOpal\sprite_kpi.png" />
+    <Content Include="Content\BlueOpal\sprite_kpi_2x.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Default\editor.png" />
+    <Content Include="Content\Default\imagebrowser.png" />
+    <Content Include="Content\Default\indeterminate.gif" />
+    <Content Include="Content\Default\loading-image.gif" />
+    <Content Include="Content\Default\loading.gif" />
+    <Content Include="Content\Default\loading_2x.gif" />
+    <Content Include="Content\Default\markers.png" />
+    <Content Include="Content\Default\markers_2x.png" />
+    <Content Include="Content\Default\slider-h.gif" />
+    <Content Include="Content\Default\slider-v.gif" />
+    <Content Include="Content\Default\sprite.png" />
+    <Content Include="Content\Default\sprite_2x.png" />
+    <Content Include="Content\Default\sprite_kpi.png" />
+    <Content Include="Content\Default\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo.blueopal.min.css" />
+    <Content Include="Content\kendo.common.min.css" />
+    <Content Include="Content\kendo.default.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -221,12 +257,17 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <Content Include="jmspa\detail.html" />
+    <Content Include="jmspa\Index.html" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -236,6 +277,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo.all.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Movies.js" />
     <Content Include="Scripts\respond.js" />
@@ -292,7 +334,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

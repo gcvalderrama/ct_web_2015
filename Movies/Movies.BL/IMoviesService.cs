@@ -12,6 +12,9 @@ namespace Movies.BL
         Movie GetOne(int Id);
         IEnumerable<Movie> GetAll();
         void Create(Movie Model);
-        void CreateReview(Review Model); 
+        void CreateReview(Review Model);
+
+        IList<Movie> SearchMovies(string Filter);
+
     }
 }

@@ -5,7 +5,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper; 
+using Dapper;
+using Movies.Entities;
+
 namespace Movies.DAC
 {
     public class MovieRepository :  IMovieRepositorio
@@ -74,6 +76,17 @@ namespace Movies.DAC
             var context = new MoviesDbContext();
             context.Reviews.Add(Model);
             context.SaveChanges();              
+        }
+
+        public IList<Movie> Search(string Filter)
+        {
+            var entities = new MoviesDbContext();
+
+            var query = (from c in entities.Movies
+                         where c.Title.Contains(Filter)
+                         select c).ToList();
+
+            return query;
         }
     }
 }

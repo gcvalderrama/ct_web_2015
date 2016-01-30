@@ -24,12 +24,18 @@ namespace MoviesSite.Controllers
             var model = this.MoviesService.GetAll(); 
             return View(model);
         }
-
-
+                
+        [AcceptVerbs(HttpVerbs.Get| HttpVerbs.Post)]
         public ActionResult Details(int id)
         {
             var model = this.MoviesService.GetOne(id);
-            return this.View(model);
+            if (this.Request.IsAjaxRequest())
+            {
+                return Json(new { title = model.Title, description = model.Description }, JsonRequestBehavior.DenyGet); 
+            }
+            else {                
+                return this.View(model);
+            }            
         }
 
         public ActionResult  Create()
@@ -37,6 +43,26 @@ namespace MoviesSite.Controllers
             return this.View(); 
         }
 
+        [HttpPost]
+        public ActionResult Search(string filter)
+        {
+            if (!this.Request.IsAjaxRequest())
+            {
+                return this.HttpNotFound("this action is not valid with ajax request");
+            }
+
+            var data =  this.MoviesService.SearchMovies(filter);
+
+            var result = new { items = new List<Object>() };
+
+            foreach (var item in data)
+            {
+                result.items.Add(new { title = item.Title, description = item.Description, id = item.Id }); 
+            }           
+
+
+            return Json( result , JsonRequestBehavior.DenyGet);
+        }
         
 
         [ValidateAntiForgeryToken]
