@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="../Content/kendo.common.min.css" rel="stylesheet" />
+    <link href="../Content/kendo.default.min.css" rel="stylesheet" />
+    <link href="../Content/kendo.blueopal.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-2.2.0.min.js"></script>
+    <script src="../Scripts/kendo.all.min.js"></script>
+    <style>
+        .col-md-1 {
+            border-color:red;
+            border-width:1px;
+            border-style:solid;
+        }
+        .top-buffer { margin-top:20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-3">
+                    <h1>
+                        Movies Application
+                    </h1>                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label> Search Movies </label>
+            </div>
+            <div class="col-md-8">
+                <input id="txtSearch" autofocus="autofocus" type="text" placeholder="search movies" style="width:100%" />
+            </div>
+            <div class="col-md-2">
+                <button id="btnSearch" type="button" class="k-button">Search</button>
+            </div>
+            
+        </div>
+        <div>
+
+        </div>
+        <div class="row top-buffer">
+            <div class="col-md-12">
+                <div id="gResults">
+
+                </div>
+            </div>
+        </div>
+    </div>    
+    
+    <script>
+        $(document).on("ready",function () {
+
+            $("#txtSearch").on("keypress", function (event) {
+                if (event.which === 13)
+                {
+                    event.preventDefault();
+                    $("#btnSearch").click();                     
+                }                
+            });
+            $("#btnSearch").on("click", function () {
+                $("#gResults").data("kendoGrid").dataSource.read(); 
+            });
+
+
+            $("#gResults").kendoGrid({
+                columns: [
+                    { title: "Title", field: "title", template: '<a href="/jmspa/detail.html?id=#=id#">#=title#</a>' },
+                    { title: "Description", field :"description" }
+                ],
+                autoBind:false,
+                dataSource: new kendo.data.DataSource({
+                    dataType: "json",
+
+                    transport: {
+                        read: {
+                            type: "POST",
+                            url: "/Movies/Search",
+                            data:
+                                {
+                                    filter: function () {
+                                        return $("#txtSearch").data("kendoAutoComplete").value();
+                                    }
+                                }
+                        }
+                    },
+                    schema: {
+                        data: function (result) {
+                            return result.items;
+                        }
+                    }
+                }),
+            });
+                
+
+            $("#txtSearch").kendoAutoComplete({
+                minLength:3,
+                dataTextField: "title",
+                filter: 'contains',
+                dataSource: new kendo.data.DataSource({
+                    dataType :"json",                     
+                    transport: {
+                        read: {
+                            type: "POST",
+                            url: "/Movies/Search",
+                            data:
+                                {
+                                    filter: function () {
+                                            return $("#txtSearch").data("kendoAutoComplete").value();
+                                    }
+                                }                                                                        
+                        }                        
+                    },
+                    schema: {
+                        data: function (result)
+                        {
+                            return result.items; 
+                        }
+                    }
+                }),
+                change: function(){
+                    this.dataSource.read();
+                }
+            })
+            
+        });        
+    </script>
+</body>
+</html>

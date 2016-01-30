@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/kendo.common.min.css" rel="stylesheet" />
+    <link href="../Content/kendo.default.min.css" rel="stylesheet" />
+    <link href="../Content/kendo.blueopal.min.css" rel="stylesheet" />
+</head>
+<body ng-app="moviesapp" >
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-3">
+                    <h1>
+                        Movies Application
+                    </h1>
+                </div>
+            </div>
+        </div>        
+        <div ng-view="ContentRegion">
+
+        </div>
+    </div>
+        <script src="../Scripts/jquery-2.2.0.js"></script>
+        <script src="../Scripts/angular.js"></script>
+        <script src="../Scripts/angular-route.js"></script>
+        <script src="../Scripts/kendo.all.min.js"></script>
+        <script src="SearchApp.js"></script>
+        <script src="controllers/SearchController.js"></script>
+
+        <!--<script>
+            angular.module("moviesapp", []).controller("HelloController", function ($scope) {
+                $scope.helloTo = {};
+                $scope.helloTo.title = "Juan Perez";
+            });
+        </script>-->
+</body>
+</html>
