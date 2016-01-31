@@ -1,0 +1,1 @@
+cinst CalSite -source .\Build -f -y -packageParameters '"/Destination:C:\inetpub\wwwroot\CalSite /AppName:Default Web Site\CalSite  /UserName:movieservice /Password:P@ssw0rd /Config:Web.QA.config"'

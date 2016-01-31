@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{    
+    <table>
+        <tr>
+            <td>
+                <input type="number" name="input1" id="input1" value="@ViewBag.Input1" />
+            </td>
+            <td>
+                +
+            </td>
+            <td>
+                <input type="number" name="input2" id="input2" value="@ViewBag.Input2" />
+            </td>
+            <td> = </td>
+            <td>
+                <input type="number" name="result" id="result" value="@ViewBag.Result" />  
+            </td>
+            <td>
+                <button type="button" id="btnSumar"> Sumar </button>
+            </td>
+        </tr>
+    </table>
+}
+
+@section scripts{
+
+    <script>
+
+        $(document).on("ready", function () {
+            $("#btnSumar").on("click", function () {
+
+
+                
+                var v1 = parseInt($("#input1").val());
+                var v2 = parseInt($("#input2").val());
+
+
+                //$ajax { type : post }
+                var defer = $.post("Calculadora/Sumar", {
+                    input1: v1,
+                    input2: v2
+                });
+
+                defer.done(function (data) {
+                    $("#result").val(data.result);
+                });               
+ 
+            });
+
+        });
+
+    </script>
+
+}
+
+

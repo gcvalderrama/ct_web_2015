@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    @Styles.Render("~/Content/kendo.common.min.css")
+    @Styles.Render("~/Content/kendo.default.min.css")
+    @Styles.Render("~/Content/kendo.blueopal.min.css")
+
+    
+}
+
+<h2>Home</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <label>Search</label>
+        </div>
+        <div class="col-md-6">
+            <input type="text" id="txtsearch" autofocus="autofocus" />
+        </div>
+        <div class="col-md-2">
+            <button  type="button" id="btnSearch">Search</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div id="gvMovies"></div>
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/Scripts/kendo.all.min.js")
+
+    <script>
+
+
+        $("#txtsearch").on("keypress", function (event) {
+            if (event.which === 13) {
+                event.preventDefault();
+                $("#btnSearch").click();
+            }
+        });
+        $(document).on("ready", function () {
+            $("#gvMovies").kendoGrid({
+                columns: [
+                    { title: 'title', field: 'title' },
+                    { title: 'description', field: 'description' }
+                ],
+                autoBind: false, 
+                dataSource: new kendo.data.DataSource({
+                    dataType: "json",
+                    transport: {
+                        read: {
+                            type: "POST",
+                            url: "/Movies/Search",
+                            data:
+                                {
+                                    filter: function () {
+                                        return $("#txtsearch").val();
+                                }
+                            }
+                        }
+                    },
+                    schema: {
+                        data: function (result) {
+                            return result.items;
+                        }
+                    }
+                })
+            });
+
+            $("#btnSearch").on("click", function () {
+                
+                $("#gvMovies").data("kendoGrid").dataSource.read();
+
+
+            });
+
+
+        });
+    </script>
+    
+
+}
