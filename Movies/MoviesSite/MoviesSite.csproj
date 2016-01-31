@@ -330,6 +330,7 @@
     <Content Include="Views\Simple\Index3.cshtml" />
     <Content Include="Views\Simple\Index4.cshtml" />
     <Content Include="Views\Simple\Index5.cshtml" />
+    <Content Include="Views\Movies\Home.cshtml" />
     <None Include="Web.Acceptance.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

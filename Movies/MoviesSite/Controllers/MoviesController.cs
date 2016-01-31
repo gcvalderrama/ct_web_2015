@@ -24,6 +24,12 @@ namespace MoviesSite.Controllers
             var model = this.MoviesService.GetAll(); 
             return View(model);
         }
+
+        public ActionResult Home()
+        {
+            return View(); 
+        }
+
                 
         [AcceptVerbs(HttpVerbs.Get| HttpVerbs.Post)]
         public ActionResult Details(int id)

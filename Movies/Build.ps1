@@ -128,7 +128,7 @@ mkdir $package_config_path
 
 TransFormXmlConfigFiles $projectFilePath  $package_config_path
 
-Copy-Item Movie.nuspec -Destination .\Build\app.nuspec
+Copy-Item CalSite.nuspec -Destination .\Build\app.nuspec
 
 Copy-Item .\Packaging\tools\* -Destination .\Build\tools\ -Recurse
 
