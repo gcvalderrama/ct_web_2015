@@ -13,8 +13,8 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div>
         <h1>Movie Report</h1>        
-            <rsweb:ReportViewer ID="ReportViewer1" OnReportRefresh="ReportViewer1_ReportRefresh1"  runat="server" Width="800" Height="400"></rsweb:ReportViewer>
-            
+            <%--<rsweb:ReportViewer ID="ReportViewer1" OnReportRefresh="ReportViewer1_ReportRefresh1"  runat="server" Width="800" Height="400"></rsweb:ReportViewer>
+            --%>
         
         
     </div>  

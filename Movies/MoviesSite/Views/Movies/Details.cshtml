@@ -29,7 +29,11 @@
 
     </dl>
 </div>
-<div>
+<div class="col-md-5">
+    <img id="imgPreview" width="300" height="300" src="@Url.Action("GetMoviePoster", new {Id =  this.Model.Id})" />
+</div>
+
+<div >
     <p>
         @Html.ActionLink("Create New Review", "Create", new { controller= "Reviews",  Movie = Model.Id })
     </p>

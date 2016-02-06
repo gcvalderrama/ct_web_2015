@@ -14,7 +14,10 @@
     }))
 {
     <input type="file" name="files" id="files" multiple="multiple" />
-    <input type="text" id="txtFiles" value="no files"/>     
+    
+    <div id="plImages"></div>
+    
+    
 }
 @section Scripts {
     <script src="~/Scripts/jquery.ui.widget.js"></script>
@@ -26,9 +29,15 @@
             console.log('ready');
             $('#files').fileupload({
                 dataType: 'json',
-                done: function (e, data) {
+                done: function (e, data) {                    
                     $.each(data.result, function (index, file) {
-                        $('#txtFiles').val(file.name);
+                        var div = $("<div>"); 
+                        var img = $("<img>");
+                        img.attr("src", file.path);
+                        img.attr("width", 200);
+                        img.attr("height", 200);
+                        div.append(img);
+                        $("#plImages").append(div);
                     });                    
                 }
             });

@@ -2,9 +2,11 @@
 using Movies.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace MoviesSite.Controllers
 {
@@ -77,6 +79,14 @@ namespace MoviesSite.Controllers
         {
             if(this.ModelState.IsValid)
             {
+                if ( files != null )
+                {
+                    var fileName = string.Format("~/MovieImages/{0}", 
+                        files.FileName);                                                
+                    files.SaveAs(this.Server.MapPath(fileName));
+                    Model.Poster = fileName; 
+                }
+
                 this.MoviesService.Create(Model);
                 return this.RedirectToAction("Index");
             }
@@ -85,14 +95,44 @@ namespace MoviesSite.Controllers
                 return View(Model); 
             }
         }
+
+        [OutputCache(Duration=2400, 
+            VaryByParam="*", 
+            Location= OutputCacheLocation.Client) ]
+        public ActionResult GetMoviePoster(int Id)
+        {
+            var model = this.MoviesService.GetOne(Id);
+            return this.File(model.Poster, 
+                string.Format("image/{0}", 
+                Path.GetExtension( model.Poster ))); 
+        }
+
+
+
+
+
+
         public ActionResult MovieUpload()
         {
             return this.View(); 
         }
         [HttpPost]
-        public ActionResult MovieUpload(IEnumerable<HttpPostedFileBase> files)
+        public ActionResult MovieUpload(
+            IEnumerable<HttpPostedFileBase> files)
         {
-            return Json(files.Select(c => new { name = c.FileName }));            
+            List<string> images = new List<string>(); 
+            foreach (var item in files)
+            {
+                var fileName = string.Format("~/MovieImages/{0}",
+                       item.FileName);
+                item.SaveAs(this.Server.MapPath(fileName));
+
+                images.Add(fileName); 
+            }
+                       
+
+            return Json(images.Select(c => new { 
+                path = this.Url.Content(c) }));            
         }
         public ActionResult MovieReport()
         {

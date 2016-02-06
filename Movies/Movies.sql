@@ -8,7 +8,8 @@ create table  Movies
 (
 	Id int primary key identity(1,1),  
 	Title nvarchar(512), 
-	Description nvarchar(2056)
+	Description nvarchar(2056),
+	Poster varchar(512) null 
 )
 go 
 create table Reviews 
