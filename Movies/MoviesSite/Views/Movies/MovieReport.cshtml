@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "MovieReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MovieReport</h2>
+
+@Html.Raw(HttpUtility.HtmlDecode(ViewBag.ReporteHTML.ToString()))

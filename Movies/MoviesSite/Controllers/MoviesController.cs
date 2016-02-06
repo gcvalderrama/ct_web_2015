@@ -73,7 +73,7 @@ namespace MoviesSite.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Create(Movie Model)
+        public ActionResult Create(Movie Model, HttpPostedFileBase files)
         {
             if(this.ModelState.IsValid)
             {
@@ -85,6 +85,69 @@ namespace MoviesSite.Controllers
                 return View(Model); 
             }
         }
+        public ActionResult MovieUpload()
+        {
+            return this.View(); 
+        }
+        [HttpPost]
+        public ActionResult MovieUpload(IEnumerable<HttpPostedFileBase> files)
+        {
+            return Json(files.Select(c => new { name = c.FileName }));            
+        }
+        public ActionResult MovieReport()
+        {
 
+            //URL del Servidor de Reporting Services
+            string servidor = "http://devserver/ReportServer_SQLEXPRESS2014";
+
+            //Carpeta donde tenemos los reportes
+            string carpeta = "Movies";
+
+            //Nombre del Reporte
+            string reporte = "MovieReport";
+
+            //Los parámetros con sus respectivos valores
+            string parametros = "";
+
+            //Comandos a pasar al Visor de Reporting Services
+            //http://technet.microsoft.com/es-ve/library/ms152835.aspx
+            string comandosRS = "&rs:Command=Render&rs:Format=HTML4.0&rc:Parameters=false";
+
+            var command = String.Format("<iframe id='ifReporte' width='100%' style='height: 480px' frameborder='0' src='{0}?/{1}/{2}{3}{4}'></iframe>",
+                                 servidor, carpeta, reporte, parametros, comandosRS);
+
+            ViewBag.ReporteHTML = command;
+            return View();
+             
+        }
+        public ActionResult MovieAyncReport()
+        {
+            return View(); 
+        }
+        public ActionResult MovieAyncReportJSON()
+        {
+
+            //URL del Servidor de Reporting Services
+            string servidor = "http://devserver/ReportServer_SQLEXPRESS2014";
+
+            //Carpeta donde tenemos los reportes
+            string carpeta = "Movies";
+
+            //Nombre del Reporte
+            string reporte = "MovieReport";
+
+            //Los parámetros con sus respectivos valores
+            string parametros = "";
+
+            //Comandos a pasar al Visor de Reporting Services
+            //http://technet.microsoft.com/es-ve/library/ms152835.aspx
+            string comandosRS = "&rs:Command=Render&rs:Format=HTML4.0&rc:Parameters=false";
+
+            var command = String.Format("<iframe id='ifReporte' width='100%' style='height: 480px' frameborder='0' src='{0}?/{1}/{2}{3}{4}'></iframe>",
+                                 servidor, carpeta, reporte, parametros, comandosRS);
+
+
+            return Json(command, JsonRequestBehavior.AllowGet);            
+        }
     }
 }

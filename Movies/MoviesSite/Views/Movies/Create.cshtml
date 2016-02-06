@@ -8,8 +8,13 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
-{
+
+@using (Html.BeginForm(null, null,
+                FormMethod.Post, new
+                {
+                    enctype = "multipart/form-data"
+                }))
+{ 
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
@@ -34,10 +39,20 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <div>
+                    <img id="imgPreview" width="150" height="150" />
+                </div>
+                <input type="file" id="files" name="files" />                
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                
+                <input type="submit" value="Create" class="btn btn-default" />
+
+            </div>
+        </div>
+   </div>
 }
 
 <div>
@@ -46,4 +61,19 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+            $(function () {
+                $("#files").change(function () {
+                    if (this.files && this.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $("#imgPreview").attr('src', e.target.result);
+                        }
+                        reader.readAsDataURL(this.files[0]);
+                    } else {
+                        $("#imgPreview").attr('src', 'placeholder.png');
+                    }
+                });
+            });
+    </script>
 }

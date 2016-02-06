@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "MovieAyncReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MovieAyncReport</h2>
+
+
+<input type="button" value="Ver Reporte" id="btnVerReporte" />
+
+<br />
+
+<span id="spnReporte"></span>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#btnVerReporte').click(function () {
+                $.getJSON(
+                    '/Movies/MovieAyncReportJSON',{ },
+                    function (result) {
+                        $('#spnReporte').html(result);
+                    });
+            });
+        });
+    </script>
+}

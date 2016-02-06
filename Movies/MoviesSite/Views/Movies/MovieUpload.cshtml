@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "MovieUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Image</h2>
+
+
+@using (Html.BeginForm(null, null,
+    FormMethod.Post, new
+    {
+        enctype = "multipart/form-data"
+    }))
+{
+    <input type="file" name="files" id="files" multiple="multiple" />
+    <input type="text" id="txtFiles" value="no files"/>     
+}
+@section Scripts {
+    <script src="~/Scripts/jquery.ui.widget.js"></script>
+    <script src="~/Scripts/jquery.iframe-transport.js"></script>
+    <script src="~/Scripts/jquery.fileupload.js"></script>
+
+    <script>
+        $(document).on('ready', function () {
+            console.log('ready');
+            $('#files').fileupload({
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result, function (index, file) {
+                        $('#txtFiles').val(file.name);
+                    });                    
+                }
+            });
+        });
+    </script>
+}
+
