@@ -138,13 +138,13 @@ namespace MoviesSite.Controllers
         {
 
             //URL del Servidor de Reporting Services
-            string servidor = "http://devserver/ReportServer_SQLEXPRESS2014";
+            string servidor = "http://cibertec/ReportServer";
 
             //Carpeta donde tenemos los reportes
             string carpeta = "Movies";
 
             //Nombre del Reporte
-            string reporte = "MovieReport";
+            string reporte = "MoviesReportList";
 
             //Los parámetros con sus respectivos valores
             string parametros = "";
