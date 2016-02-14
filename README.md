@@ -1,5 +1,8 @@
 # ct_web_2015 clase sabados 
 
+jeysson ivazeta capacca
+https://github.com/jeysson12/SisWebAsistencia
+
 Grupo Quineche-Martinez
 https://github.com/Luisa9385/BlogInform-tico.git
 Grupo_Araujo_Cano_Huamani
