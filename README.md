@@ -1,4 +1,5 @@
 # ct_web_2015 clase sabados 
+
 Grupo Quineche-Martinez
 https://github.com/Luisa9385/BlogInform-tico.git
 Grupo_Araujo_Cano_Huamani
@@ -21,3 +22,7 @@ Nombre:Juan Victor Alfaro Mariño
 https://github.com/jvalfaro/Proyecto-Curso-Web-Developer
 Pablo Benites
 https://github.com/pablobego/trabajo-final-web.git
+Dylan Lopez
+https://github.com/dylanlopez/tf_web_videojuegos
+Cristian Cunya
+https://github.com/cristiancunya/eCommerce.git
